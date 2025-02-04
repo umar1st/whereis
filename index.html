@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Technology</title>
+    <link rel="stylesheet" href="styles.css">
+	
+<style>
+    /* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Sticky Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+/* Logo */
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff0019;
+}
+
+/* Search Bar */
+.search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+/* Cart and Login Button */
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    margin: 0 15px;
+    position: relative;
+}
+
+.cart-count {
+    background: red;
+    color: white;
+    font-size: 0.8em;
+    padding: 3px 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+.login-btn {
+    background-color: #05cf52;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ff1a1e;
+}
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #111, #333);
+    background-image: url('hero-image1.png'); /* Add your background image here */
+    color: white;
+    padding: 60px 50px;
+    height: 80vh;
+}
+
+/* Hero Text Content */
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* CTA Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background-color: #00c3ff;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #ef0d0d;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid #00c3ff;
+    color: #00c3ff;
+}
+
+.secondary-btn:hover {
+    background-color: #00c3ff;
+    color: white;
+}
+
+/* Hero Image */
+.hero-image img {
+    max-width: 9%;
+    height: auto;
+}
+/* Featured Categories */
+.categories {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f5f5f5;
+}
+
+.categories h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.category-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.category-card p {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+/* Best-Selling & Trending Products */
+.best-selling {
+    text-align: center;
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.best-selling h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #00c3ff;
+    font-weight: bold;
+}
+
+.price small {
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 5px;
+}
+
+.rating {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #ff9800;
+}
+
+.add-to-cart {
+    background-color: #00c3ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #0098cc;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+/* Subscription Plan Section */
+.subscription-plans {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.subscription-plans h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.subscription-plans p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.plan h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.plan p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00c3ff;
+    margin-bottom: 10px;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.plan ul li {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555;
+}
+
+.subscribe-btn {
+    background-color: #00c3ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.subscribe-btn:hover {
+    background-color: #0098cc;
+}
+
+.premium {
+    border: 3px solid #00c3ff;
+}
+
+.annual {
+    border: 3px solid #ff9800;
+}
+
+
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.testimonials h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.testimonial-slider {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+}
+
+.testimonial {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonial h3 {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+.testimonial p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+/* Why Choose Us Section */
+.why-choose-us {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.why-choose-us h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.benefits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.benefit {
+    width: 220px;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+}
+
+.benefit img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.benefit h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.benefit p {
+    font-size: 1em;
+    color: #555;
+}
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.cta-btn.shop {
+    background: #007bff;
+}
+
+.cta-btn.subscribe {
+    background: #ff9800;
+}
+
+.cta-btn.repair {
+    background: #28a745;
+}
+
+.cta-btn:hover {
+    opacity: 0.8;
+}
+
+/* Newsletter Signup */
+.newsletter {
+    margin-top: 40px;
+}
+
+.newsletter h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+#newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#newsletter-form input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#newsletter-form button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#newsletter-form button:hover {
+    background: #0056b3;
+}
+
+/* Social Media Links */
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a img {
+    width: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links a img:hover {
+    transform: scale(1.1);
+}
+/* Footer Section */
+.footer {
+    background: #222;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-column h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 5px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #ddd;
+    transition: 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ff9800;
+}
+
+/* Social Media Icons */
+.social-media img {
+    width: 30px;
+    margin-right: 10px;
+    transition: 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* Back to Top Button */
+#backToTop {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #ff9800;
+    color: #222;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#backToTop:hover {
+    background: #e68900;
+}
+
+</style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="logo.png.jpg" alt="TechStore">
+            <a href="#">Where Technology</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Subscriptions</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <a href="#" class="cart">🛒 <span class="cart-count">0</span></a>
+            <a href="#" class="login-btn">Login/Signup</a>
+        </div>
+    </header>
+    <script src="script.js"></script>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Discover the Future of Technology</h1>
+        <p>Top-notch gadgets, seamless repair services, and exclusive subscription plans.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn primary-btn">🛒 Shop Now</a>
+            <a href="#" class="btn secondary-btn">🔧 Get Repairs</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="hero-image.jpg" alt="Futuristic Tech" />
+    </div>
+</section>
+<!-- Featured Categories Section -->
+<section class="categories">
+    <h2>Explore by Category</h2>
+    <div class="category-grid">
+        <div class="category-card">
+            <img src="laptops.png" alt="Laptops & Computers">
+            <p>Laptops & Computers</p>
+        </div>
+        <div class="category-card">
+            <img src="smartphones.png" alt="Smartphones & Accessories">
+            <p>Smartphones & Accessories</p>
+        </div>
+        <div class="category-card">
+            <img src="gaming.png" alt="Gaming & VR">
+            <p>Gaming & VR</p>
+        </div>
+        <div class="category-card">
+            <img src="hero-image1.png" alt="Repair Services">
+            <p>Repair Services</p>
+        </div>
+    </div>
+</section>
+<!-- Best-Selling & Trending Products Section -->
+<section class="best-selling">
+    <h2>🔥 Best-Selling & Trending Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="smart phone">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="hero-image1.png" alt="Gaming Laptop">
+            <h3>Gaming Laptop</h3>
+            <p>High-performance gaming laptop with RTX graphics.</p>
+            <span class="price">$1,499 <small>$1,799</small></span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.8/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="phone1.png" alt="Smartphone Pro">
+            <h3>Smartphone Pro</h3>
+            <p>Latest flagship smartphone with AI-enhanced camera.</p>
+            <span class="price">$899</span>
+            <div class="rating">⭐️⭐️⭐️⭐️ (4.5/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="vr1.png" alt="VR Headset">
+            <h3>VR Headset</h3>
+            <p>Immersive VR experience with ultra-clear resolution.</p>
+            <span class="price">$499</span>
+            <div class="rating">⭐️⭐️⭐️⭐️⭐️ (4.9/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="headphones1.png" alt="Wireless Headphones">
+            <h3>Wireless Headphones</h3>
+            <p>Noise-canceling headphones with deep bass sound.</p>
+            <span class="price">$199</span>
+            <div class="rating">⭐️⭐️⭐️⭐️ (4.7/5)</div>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+</section>
+<!-- Repair Service Subscription Section -->
+<section class="subscription-plans">
+    <h2>🔧 Choose Your Repair Subscription</h2>
+    <p>Subscribe to get premium repair services with exclusive benefits.</p>
+    
+    <div class="plans">
+        <div class="plan basic" data-plan="basic" data-price="5">
+            <h3>🎟 Basic Plan</h3>
+            <p>$5 / Month</p>
+            <ul>
+                <li>✔ Standard Repair Services</li>
+                <li>✔ Normal Response Time</li>
+                <li>❌ No Priority Support</li>
+            </ul>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+
+        <div class="plan premium" data-plan="premium" data-price="15">
+            <h3>🌟 Premium Plan</h3>
+            <p>$15 / Month</p>
+            <ul>
+                <li>✔ Faster Repair Processing</li>
+                <li>✔ Priority Customer Support</li>
+                <li>✔ Discount on Spare Parts</li>
+            </ul>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+
+        <div class="plan vip" data-plan="vip" data-price="25">
+            <h3>🚀 VIP Plan</h3>
+            <p>$25 / Month</p>
+            <ul>
+                <li>✔ Express Repair Service</li>
+                <li>✔ 24/7 Dedicated Support</li>
+                <li>✔ Free Diagnosis & Discounts</li>
+            </ul>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+    </div>
+</section>
+<!-- Customer Testimonials Section -->
+<section class="testimonials">
+    <h2>📢 What Our Customers Say</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <img src="images/user1.jpg" alt="User 1" class="testimonial-img">
+            <h3>Sarah A.</h3>
+            <p>⭐️⭐️⭐️⭐️⭐️</p>
+            <p>"Excellent service! Fast repair and great customer support."</p>
+        </div>
+        <div class="testimonial">
+            <img src="images/user2.jpg" alt="User 2" class="testimonial-img">
+            <h3>Michael B.</h3>
+            <p>⭐️⭐️⭐️⭐️⭐️</p>
+            <p>"Highly recommended! My phone was fixed in no time."</p>
+        </div>
+        <div class="testimonial">
+            <img src="images/user3.jpg" alt="User 3" class="testimonial-img">
+            <h3>Linda C.</h3>
+            <p>⭐️⭐️⭐️⭐️⭐️</p>
+            <p>"Great prices, fast service, and friendly staff!"</p>
+        </div>
+    </div>
+</section>
+<!-- Why Choose Us Section -->
+<section class="why-choose-us">
+    <h2>🔹 Why Shop with Where Technology?</h2>
+    <div class="benefits">
+        <div class="benefit">
+            <img src="icons/payment-secure.png" alt="Secure Payments">
+            <h3>Fast & Secure Payments</h3>
+            <p>Pay easily with Telebirr, CBE Birr, and other methods.</p>
+        </div>
+        <div class="benefit">
+            <img src="icons/genuine-products.png" alt="Genuine Products">
+            <h3>Genuine & High-Quality Products</h3>
+            <p>Only the best tech equipment and accessories.</p>
+        </div>
+        <div class="benefit">
+            <img src="icons/repair-services.png" alt="Repair Services">
+            <h3>Easy Repair Services</h3>
+            <p>Get expert repairs with live chat support.</p>
+        </div>
+        <div class="benefit">
+            <img src="icons/discounts.png" alt="Exclusive Discounts">
+            <h3>Exclusive Member Discounts</h3>
+            <p>Save more with our special subscription plans.</p>
+        </div>
+        <div class="benefit">
+            <img src="icons/customer-support.png" alt="24/7 Support">
+            <h3>24/7 Customer Support</h3>
+            <p>We’re here for you anytime, anywhere.</p>
+        </div>
+    </div>
+</section>
+<!-- Final Call to Action Section -->
+<section class="cta-section">
+    <h2>🚀 Take the Next Step!</h2>
+    <p>Shop for the latest tech, subscribe for exclusive benefits, or request a repair now.</p>
+    <div class="cta-buttons">
+        <a href="products.html" class="cta-btn shop">🛒 Shop Now</a>
+        <a href="subscriptions.html" class="cta-btn subscribe">🌟 Join Premium</a>
+        <a href="repair.html" class="cta-btn repair">🔧 Start a Repair</a>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="newsletter">
+        <h3>📩 Stay Updated with Tech News & Offers</h3>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+    </div>
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Company Info</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Customer Support</h3>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Return Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Subscriptions</a></li>
+                <li><a href="#">Repair Services</a></li>
+            </ul>
+        </div>
+        <div class="footer-column social-media">
+            <h3>Follow Us</h3>
+            <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+        </div>
+    </div>
+
+    <!-- Copyright & Back to Top -->
+    <div class="footer-bottom">
+        <p>© 2025 Where Technology. All Rights Reserved.</p>
+        <button id="backToTop">⬆ Back to Top</button>
+
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    let cartCount = 0;
+
+    // Simulate adding items to cart
+    document.querySelector(".cart").addEventListener("click", (e) => {
+        e.preventDefault();
+        cartCount++;
+        document.querySelector(".cart-count").textContent = cartCount;
+    });
+});
+// Hero Section Animation on Load
+document.addEventListener("DOMContentLoaded", () => {
+    const hero = document.querySelector(".hero");
+    hero.style.opacity = "0";
+    hero.style.transform = "translateY(50px)";
+    setTimeout(() => {
+        hero.style.transition = "opacity 1s ease-out, transform 1s ease-out";
+        hero.style.opacity = "1";
+        hero.style.transform = "translateY(0)";
+    }, 300);
+});
+// Category Card Hover Animation
+document.querySelectorAll(".category-card").forEach((card) => {
+    card.addEventListener("mouseover", () => {
+        card.style.transform = "scale(1.05)";
+    });
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "scale(1)";
+    });
+});
+// Add to Cart Functionality
+document.addEventListener("DOMContentLoaded", () => {
+    let cartCount = 0;
+
+    document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", () => {
+            cartCount++;
+            alert("Item added to cart!");
+            document.querySelector(".cart-icon").textContent = `🛒 (${cartCount})`;
+        });
+    });
+});
+// Firebase Initialization
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+// Subscription Button Click Event
+document.querySelectorAll('.subscribe-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+        const plan = button.parentElement.getAttribute('data-plan');
+        const price = button.parentElement.getAttribute('data-price');
+
+        // Redirect to Payment Page (Simulated Example)
+        const paymentURL = `https://payment-gateway.com/pay?amount=${price}&plan=${plan}`;
+        window.location.href = paymentURL;
+
+        // Simulate Successful Payment Callback (Replace with real logic)
+        setTimeout(async () => {
+            const user = auth.currentUser;
+            if (user) {
+                await db.collection('users').doc(user.uid).update({
+                    subscription: plan
+                });
+
+                alert(`Subscription successful! You are now a ${plan} subscriber.`);
+                updateProfileBadge(plan);
+            }
+        }, 5000);
+    });
+});
+
+// Function to Assign Profile Badge Based on Subscription
+function updateProfileBadge(plan) {
+    const profilePic = document.querySelector('.profile-picture');
+    if (!profilePic) return;
+
+    let borderColor;
+    if (plan === 'basic') borderColor = '#00c3ff';
+    else if (plan === 'premium') borderColor = '#ff9800';
+    else if (plan === 'vip') borderColor = '#ff0000';
+
+    profilePic.style.border = `3px solid ${borderColor}`;
+}
+// Testimonial Auto-Slider
+let index = 0;
+const testimonials = document.querySelectorAll('.testimonial');
+function showNextTestimonial() {
+    testimonials.forEach((testimonial, i) => {
+        testimonial.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
+    index = (index + 1) % testimonials.length;
+}
+setInterval(showNextTestimonial, 3000); // Slide every 3 seconds
+// Newsletter Subscription Form
+document.getElementById("newsletter-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const email = event.target.querySelector("input").value;
+    alert(`Thank you for subscribing, ${email}!`);
+    event.target.reset();
+});
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTopButton = document.getElementById("backToTop");
+
+    if (backToTopButton) {
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+});
+
+
+</script>
